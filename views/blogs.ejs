@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <%- include('partials/__header'); %>
+        <div class="blogs common">
+            <div class="title">
+                <h1>Blogs</h1>
+            </div>
+            <div class="display_blogs" style="margin-top: 20px;display: flex;flex-direction: column;row-gap: 20px;">
+                <div class="blog">
+                    <h3>Title: Blog 1</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias voluptatem assumenda blanditiis quas libero. Consequatur quam recusandae maxime, aspernatur sunt ipsa fugit obcaecati corporis eum doloremque omnis, nisi corrupti voluptates?</p>
+                </div>
+                <div class="blog">
+                    <h3>Title: Blog 2</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias voluptatem assumenda blanditiis quas libero. Consequatur quam recusandae maxime, aspernatur sunt ipsa fugit obcaecati corporis eum doloremque omnis, nisi corrupti voluptates?</p>
+                </div>
+            </div>
+        </div>
+        <%- include('partials/__footer'); %>
+    </div>
+</body>
+</html>
