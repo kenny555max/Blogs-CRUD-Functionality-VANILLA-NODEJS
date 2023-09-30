@@ -14,14 +14,23 @@
                 <h1>Blogs</h1>
             </div>
             <div class="display_blogs" style="margin-top: 20px;display: flex;flex-direction: column;row-gap: 20px;">
-                <div class="blog">
-                    <h3>Title: Blog 1</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias voluptatem assumenda blanditiis quas libero. Consequatur quam recusandae maxime, aspernatur sunt ipsa fugit obcaecati corporis eum doloremque omnis, nisi corrupti voluptates?</p>
-                </div>
-                <div class="blog">
-                    <h3>Title: Blog 2</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias voluptatem assumenda blanditiis quas libero. Consequatur quam recusandae maxime, aspernatur sunt ipsa fugit obcaecati corporis eum doloremque omnis, nisi corrupti voluptates?</p>
-                </div>
+                <% if (blogs.length > 0) { %>
+                    <% blogs.forEach(function(blog) { %>
+                        <div class="blog">
+                            <h3><%= blog.blog_title %></h3>
+                            <p><%= blog.blog_body %></p>
+                            <p><%= blog.blog_created_at %></p>
+                            <div class="action" style="margin-top: 20px">
+                                <form action="/blogs/new_blog/<%= blog.blog_id %>" enctype="application/x-www-form-urlencoded" method="GET">
+                                    <button type="submit">edit</button>
+                                </form>
+                                <form action="">
+                                    <button type="submit">delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    <% }) %>
+                <% } %>
             </div>
         </div>
         <%- include('partials/__footer'); %>
