@@ -21,10 +21,13 @@
                             <p><%= blog.blog_body %></p>
                             <p><%= blog.blog_created_at %></p>
                             <div class="action" style="margin-top: 20px">
-                                <form action="/blogs/new_blog/<%= blog.blog_id %>" enctype="application/x-www-form-urlencoded" method="GET">
+                                <form action="/blogs/new_blog" enctype="application/x-www-form-urlencoded" method="GET">
+                                    <input type="hidden" name="blog_id" value="<%= blog.blog_id %>">
                                     <button type="submit">edit</button>
                                 </form>
-                                <form action="">
+                                <form action="/blogs/delete_blog" method="POST">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <input type="hidden" name="blog_id" value="<%= blog.blog_id %>">
                                     <button type="submit">delete</button>
                                 </form>
                             </div>

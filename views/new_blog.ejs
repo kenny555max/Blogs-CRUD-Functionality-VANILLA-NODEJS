@@ -10,24 +10,39 @@
     <div class="container">
         <%- include('partials/__header'); %>
         <div class="add-blog common" style="width: 30%;margin: 0 auto;line-height: 2;">
-            <form action="/blogs/create_blog"
+            <form
                 method="POST"
                 enctype="application/x-www-form-urlencoded"
+                <% if (blog._id) { %>
+                    action="/blogs/edit_blog"
+                <% }else { %>
+                    action="/blogs/create_blog"
+                <% } %>
             >
+                <% if (blog._id) { %>
+                    <input type="hidden" name="_method" value="PUT">
+                    <input type="hidden" name="blog_id" value="<%= blog._id %>">
+                <% } %>
                 <div class="blog_title">
                     <label for="blog-title">Blog Title:</label><br>
-                    <input type="text" name="blog_title">
+                    <input type="text" name="blog_title" value="<%= blog.blog_title %>">
                 </div>
                 <div class="blog_snippet">
                     <label for="blog_snippet">Blog Snippet:</label><br>
-                    <input type="text" name="blog_snippet">
+                    <input type="text" name="blog_snippet" value="<%= blog.blog_snippet %>">
                 </div>
                 <div class="blog_body">
                     <label for="blog_body">Blog Body:</label><br>
-                    <textarea name="blog_body" cols="30" rows="10"></textarea>
+                    <textarea name="blog_body" cols="30" rows="10"><%= blog.blog_body %></textarea>
                 </div>
                 <div class="submit">
-                    <button type="submit" style="text-transform: capitalize;">create blog</button>
+                    <button type="submit" style="text-transform: capitalize;">
+                        <% if (blog._id) { %>
+                            edit blog
+                        <% }else{ %>
+                            create blog
+                        <% } %>
+                    </button>
                 </div>
             </form>
         </div>
